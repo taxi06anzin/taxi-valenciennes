@@ -29,7 +29,7 @@ jobs:
       - name: Exécution du script de génération
         run: |
           cd project
-          node generate-prod.cjs
+          node generator.js
           ls -R public
 
       - name: Upload des fichiers générés
