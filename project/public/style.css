@@ -1,0 +1,351 @@
+:root {
+  --ink: #0b0d12;
+  --ink-strong: #0a0f1f;
+  --paper: #ffffff;
+  --muted: #667085;
+  --line: #e6e8ec;
+  --accent: #1a73e8;
+  --accent-strong: #1558b0;
+  --accent-alt: #0b101f;
+  --success: #25d366;
+  --gold: #e1b87a;
+  --shadow-soft: 0 8px 30px rgba(15, 23, 42, 0.12);
+  --shadow-hard: 0 20px 60px rgba(15, 23, 42, 0.2);
+  --radius: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+/* --- HEADER --- */
+header.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.header-cta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-call {
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn-call:hover {
+  background: var(--accent-alt);
+}
+
+.btn-whatsapp {
+  background: var(--success);
+  color: var(--paper);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* --- HERO --- */
+.hero {
+  background: radial-gradient(circle at 20% 20%, rgba(26,115,232,0.15), transparent 40%),
+              radial-gradient(circle at 80% 0%, rgba(225,184,122,0.2), transparent 45%),
+              linear-gradient(180deg, #0b0d12 0%, #101828 100%);
+  color: var(--paper);
+  padding: 70px 0 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2060&auto=format&fit=crop') center/cover;
+  opacity: 0.2;
+  mix-blend-mode: screen;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.1;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.hero-text p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.badge {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* --- BOOKING PANEL --- */
+.booking-panel {
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hard);
+  padding: 24px;
+  color: var(--ink);
+  display: grid;
+  gap: 14px;
+}
+
+.booking-panel h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.booking-row {
+  display: grid;
+  gap: 10px;
+}
+
+.booking-item {
+  background: #f3f5f9;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.booking-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  flex: 1;
+  background: var(--accent);
+  color: var(--paper);
+  text-decoration: none;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background: var(--accent-strong);
+}
+
+.btn-secondary {
+  flex: 1;
+  background: #f0f4ff;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* --- TRUST STRIP --- */
+.trust-strip {
+  background: var(--paper);
+  margin-top: -40px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.trust-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* --- SECTIONS --- */
+.section {
+  padding: 70px 0;
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 22px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.price-tag {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 12px 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ecfdf3;
+  color: #027a48;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* --- CTA BAR --- */
+.cta-bar {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 30px 0;
+}
+
+.cta-bar .cta-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cta-bar .cta-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* --- FOOTER --- */
+footer.site-footer {
+  background: #0b0d12;
+  color: var(--paper);
+  padding: 60px 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.footer-grid h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.footer-grid a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+  .hero {
+    padding: 50px 0 80px;
+  }
+
+  .header-cta {
+    gap: 8px;
+  }
+
+  .btn-call, .btn-whatsapp {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .cta-bar .cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+} 
