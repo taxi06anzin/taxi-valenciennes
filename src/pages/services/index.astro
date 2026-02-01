@@ -1,0 +1,77 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Plane, Ambulance, Briefcase, School } from 'lucide-react';
+
+---
+
+<Layout 
+  title="Nos Services de Transport Taxi Valenciennes" 
+  description="Découvrez tous nos services de taxi à Valenciennes : Transport médical VSL, navette aéroport, transport scolaire et colis express."
+>
+  <section class="bg-primary text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold font-heading mb-6">Nos Services</h1>
+      <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-8">
+        Une solution de mobilité adaptée à chaque besoin.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8">
+      
+      <a href="/services/medical" class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all group border-l-8 border-medical">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="bg-medical/10 p-3 rounded-full text-medical group-hover:bg-medical group-hover:text-white transition-colors">
+            <Ambulance className="w-8 h-8" />
+          </div>
+          <h2 class="text-2xl font-bold text-primary">Transport Médical</h2>
+        </div>
+        <p class="text-slate-600 mb-4">
+          Taxi conventionné CPAM (VSL) pour vos soins réguliers ou ponctuels. Accompagnement jusqu'au service, aide administrative et tiers payant.
+        </p>
+        <span class="text-medical font-bold flex items-center gap-2">En savoir plus &rarr;</span>
+      </a>
+
+      <a href="/services/aeroport" class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all group border-l-8 border-accent">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="bg-accent/10 p-3 rounded-full text-accent group-hover:bg-accent group-hover:text-white transition-colors">
+            <Plane className="w-8 h-8" />
+          </div>
+          <h2 class="text-2xl font-bold text-primary">Aéroports & Gares</h2>
+        </div>
+        <p class="text-slate-600 mb-4">
+          Navettes privées vers Lesquin, Charleroi, Zaventem, CDG. Accueil pancarte, gestion des bagages et ponctualité absolue.
+        </p>
+        <span class="text-accent font-bold flex items-center gap-2">Voir les destinations &rarr;</span>
+      </a>
+
+      <div class="bg-white p-8 rounded-2xl shadow-md border-l-8 border-slate-800 opacity-75">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="bg-slate-100 p-3 rounded-full text-slate-800">
+            <Briefcase className="w-8 h-8" />
+          </div>
+          <h2 class="text-2xl font-bold text-primary">Transport Business</h2>
+        </div>
+        <p class="text-slate-600 mb-4">
+          Service dédié aux entreprises. Facturation mensuelle, priorité de réservation et véhicules standing pour vos collaborateurs.
+        </p>
+        <span class="text-slate-800 font-bold text-sm">Sur devis uniquement</span>
+      </div>
+
+       <div class="bg-white p-8 rounded-2xl shadow-md border-l-8 border-blue-400 opacity-75">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="bg-blue-50 p-3 rounded-full text-blue-500">
+            <School className="w-8 h-8" />
+          </div>
+          <h2 class="text-2xl font-bold text-primary">Transport Scolaire</h2>
+        </div>
+        <p class="text-slate-600 mb-4">
+          Transport d'enfants vers les établissements spécialisés (CMPP, CAMSP...). Chauffeurs bienveillants et habitués.
+        </p>
+        <span class="text-blue-600 font-bold text-sm">Sur dossier MDPH</span>
+      </div>
+
+    </div>
+  </section>
+</Layout>

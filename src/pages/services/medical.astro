@@ -1,0 +1,78 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WhatsAppForm from '../../components/WhatsAppForm';
+import { ShieldCheck, FileText, Heart, Ambulance } from 'lucide-react';
+---
+
+<Layout 
+  title="Taxi VSL Valenciennes | Transport Médical Conventionné CPAM | Tiers Payant" 
+  description="Taxi conventionné CPAM à Valenciennes pour transport médical (VSL). Prise en charge 100% ALD, dialyse, radiothérapie, hospitalisation. Tiers payant intégral."
+>
+  <section class="bg-primary text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold font-heading mb-6">Transport Médical Conventionné VSL</h1>
+      <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-8">
+        Agréé par la Sécurité Sociale (CPAM) pour tous vos déplacements vers les hôpitaux, cliniques et centres de soins.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-12">
+      <!-- Info Column -->
+      <div class="space-y-8">
+        <div class="prose prose-lg text-slate-600">
+          <h2 class="text-primary font-heading">Votre santé, notre priorité</h2>
+          <p>
+            Nous assurons quotidiennement le transport de patients assis vers les principaux établissements de santé de la région Hauts-de-France et de Belgique.
+          </p>
+          
+          <div class="grid grid-cols-1 gap-6 my-8">
+            <div class="bg-green-50 p-6 rounded-xl border border-green-100 flex gap-4">
+              <ShieldCheck className="w-10 h-10 text-green-600 flex-shrink-0" />
+              <div>
+                <h3 class="text-green-900 font-bold text-lg m-0">Tiers Payant Accepté</h3>
+                <p class="text-green-800 m-0 text-sm mt-1">
+                  Pas d'avance de frais si vous êtes en ALD (100%). Nous gérons la télétransmission directement avec votre caisse.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-amber-50 p-6 rounded-xl border border-amber-100 flex gap-4">
+              <FileText className="w-10 h-10 text-amber-600 flex-shrink-0" />
+              <div>
+                <h3 class="text-amber-900 font-bold text-lg m-0">Documents Nécessaires</h3>
+                <p class="text-amber-800 m-0 text-sm mt-1">
+                  1. Prescription Médicale de Transport (Bon de transport)<br/>
+                  2. Attestation de droits CPAM à jour
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <h3>Nous desservons régulièrement :</h3>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 not-prose text-sm font-medium text-slate-700">
+            <li class="flex items-center gap-2"><Ambulance className="w-4 h-4 text-medical" /> CH Valenciennes</li>
+            <li class="flex items-center gap-2"><Ambulance className="w-4 h-4 text-medical" /> Polyclinique Vauban</li>
+            <li class="flex items-center gap-2"><Ambulance className="w-4 h-4 text-medical" /> Clinique Tessier</li>
+            <li class="flex items-center gap-2"><Ambulance className="w-4 h-4 text-medical" /> CHR Lille (Oscar Lambret)</li>
+            <li class="flex items-center gap-2"><Ambulance className="w-4 h-4 text-medical" /> Hôpitaux Parisiens</li>
+            <li class="flex items-center gap-2"><Ambulance className="w-4 h-4 text-medical" /> Centres de Dialyse</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Booking Column -->
+      <div class="lg:pl-8">
+        <div class="sticky top-24">
+          <div class="bg-slate-900 text-white p-6 rounded-xl mb-6 text-center">
+            <Heart className="w-12 h-12 text-red-500 mx-auto mb-4 animate-pulse" />
+            <p class="font-bold text-lg">Transport Assis Professionnalisé (TAP)</p>
+            <p class="text-sm text-slate-400">Véhicules climatisés, désinfectés et confortables.</p>
+          </div>
+          <WhatsAppForm client:load />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WhatsAppForm from '../../components/WhatsAppForm';
+import { Briefcase, Clock, Map, Star } from 'lucide-react';
+---
+
+<Layout 
+  title="Taxi Valenciennes | Tarifs Officiels 2024 et Devis" 
+  description="Consultez les tarifs officiels de Taxi Valenciennes. Devis gratuit pour longues distances. Tarifs préfectoraux du Nord (59)."
+>
+  <section class="bg-primary text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold font-heading mb-6">Tarifs & Devis</h1>
+      <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-8">
+        Transparence totale. Nos tarifs respectent strictement la réglementation préfectorale du Nord.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-12">
+      
+      <div class="space-y-8">
+        <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-accent">
+          <h2 class="text-2xl font-bold font-heading mb-6 text-slate-800">Tarifs Réglementés 2024</h2>
+          
+          <div class="space-y-6">
+            <div class="flex justify-between items-end border-b pb-2">
+              <div>
+                <span class="block font-bold text-lg">Prise en charge</span>
+                <span class="text-sm text-slate-500">Montant de départ au compteur</span>
+              </div>
+              <span class="text-2xl font-bold text-accent">2,60 €</span>
+            </div>
+
+            <div class="flex justify-between items-end border-b pb-2">
+              <div>
+                <span class="block font-bold text-lg">Tarif A (Jour / Aller-Retour)</span>
+                <span class="text-sm text-slate-500">Du Lundi au Samedi (7h-19h)</span>
+              </div>
+              <span class="text-2xl font-bold text-primary">1,18 €<span class="text-sm font-normal text-slate-400">/km</span></span>
+            </div>
+
+            <div class="flex justify-between items-end border-b pb-2">
+              <div>
+                <span class="block font-bold text-lg">Tarif B (Nuit / Aller-Retour)</span>
+                <span class="text-sm text-slate-500">Dimanche, Fériés et Nuit (19h-7h)</span>
+              </div>
+              <span class="text-2xl font-bold text-primary">1,54 €<span class="text-sm font-normal text-slate-400">/km</span></span>
+            </div>
+            
+            <p class="text-xs text-slate-400 italic mt-4">
+              * Ces tarifs sont indicatifs et soumis à la réglementation en vigueur. Des suppléments peuvent s'appliquer (bagages, 5ème passager, attente).
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 p-6 rounded-xl">
+          <h3 class="font-bold text-blue-900 mb-2">💡 Bon à savoir</h3>
+          <p class="text-blue-800 text-sm">
+            Pour les trajets longue distance (Aéroports, Paris, Bruxelles...), nous pouvons vous proposer un <strong>forfait fixe</strong> avantageux. N'hésitez pas à demander un devis.
+          </p>
+        </div>
+      </div>
+
+      <!-- Simulator / Contact -->
+      <div class="lg:pl-8">
+        <div class="bg-slate-900 text-white p-8 rounded-2xl mb-8">
+          <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+            <Map className="text-accent" /> Estimation de trajet
+          </h3>
+          <p class="mb-6 text-slate-300">
+            Le prix final dépend de la circulation et de l'itinéraire exact. Pour un prix ferme, contactez-nous.
+          </p>
+          <div class="grid grid-cols-2 gap-4 text-center">
+             <div class="bg-white/10 p-3 rounded-lg">
+                <span class="block text-accent font-bold">Gare Lille</span>
+                <span class="text-sm">~ 90-110 €</span>
+             </div>
+             <div class="bg-white/10 p-3 rounded-lg">
+                <span class="block text-accent font-bold">Aéroport Lesquin</span>
+                <span class="text-sm">~ 85-100 €</span>
+             </div>
+             <div class="bg-white/10 p-3 rounded-lg">
+                <span class="block text-accent font-bold">Charleroi</span>
+                <span class="text-sm">~ 130-150 €</span>
+             </div>
+             <div class="bg-white/10 p-3 rounded-lg">
+                <span class="block text-accent font-bold">Bruxelles</span>
+                <span class="text-sm">~ 160-190 €</span>
+             </div>
+          </div>
+        </div>
+        
+        <WhatsAppForm client:load />
+      </div>
+
+    </div>
+  </section>
+</Layout>
