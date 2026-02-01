@@ -121,20 +121,20 @@ function loadAssets() {
   // Lecture du CSS et minification basique
   let css = fs.readFileSync(path.join(assetsPath, 'style.css'), 'utf8');
   css = css
-    .replace(/\\/\\*[\\s\\S]*?\\*\\//g, '') // Suppression des commentaires
-    .replace(/\\s+/g, ' ') // Réduction des espaces multiples
-    .replace(/;\\s*}/g, '}') // Suppression des ; avant }
-    .replace(/\\s*{\\s*/g, '{') // Nettoyage autour des {
-    .replace(/;\\s*/g, ';') // Nettoyage des ;
+    .replace(/\/\*[\s\S]*?\*\//g, '') // Suppression des commentaires
+    .replace(/\s+/g, ' ') // Réduction des espaces multiples
+    .replace(/;\s*}/g, '}') // Suppression des ; avant }
+    .replace(/\s*{\s*/g, '{') // Nettoyage autour des {
+    .replace(/;\s*/g, ';') // Nettoyage des ;
     .trim();
   
   // Lecture du JS et minification basique
   let js = fs.readFileSync(path.join(assetsPath, 'script.js'), 'utf8');
   js = js
-    .replace(/\\/\\*[\\s\\S]*?\\*\\//g, '') // Suppression des commentaires
-    .replace(/\\/\\/.*$/gm, '') // Suppression des commentaires //
-    .replace(/\\s+/g, ' ') // Réduction des espaces
-    .replace(/;\\s*}/g, '}') // Nettoyage
+    .replace(/\/\*[\s\S]*?\*\//g, '') // Suppression des commentaires
+    .replace(/\/\/.*$/gm, '') // Suppression des commentaires //
+    .replace(/\s+/g, ' ') // Réduction des espaces
+    .replace(/;\s*}/g, '}') // Nettoyage
     .trim();
   
   return { css, js };
@@ -275,7 +275,7 @@ function generateCommuneContent(commune, variant) {
         ${voisines.map(v => `<a href="taxi-conventionne-${v.slug}.html" class="vtaxi-commune-card">
           <h3>VSL ${v.nom}</h3>
           <p>${v.cp} • Agréé CPAM</p>
-        </a>`).join('\\n        ')}
+        </a>`).join('\n        ')}
       </div>
       
       <div style="text-align: center; margin-top: 40px;">
@@ -326,9 +326,9 @@ function generateCommunePage(commune, index, templates, assets) {
   
   // Minification HTML basique
   html = html
-    .replace(/\\s+/g, ' ') // Réduction des espaces multiples
+    .replace(/\s+/g, ' ') // Réduction des espaces multiples
     .replace(/> </g, '><') // Suppression des espaces entre balises
-    .replace(/^\\s+|\\s+$/gm, '') // Suppression des espaces en début/fin de ligne
+    .replace(/^\s+|\s+$/gm, '') // Suppression des espaces en début/fin de ligne
     .trim();
   
   return html;
@@ -393,14 +393,14 @@ async function main() {
     
     // Statistiques finales
     const totalFiles = fs.readdirSync(path.join(__dirname, 'public')).length;
-    console.log(`\\n🎉 GÉNÉRATION TERMINÉE !`);
+    console.log(`\n🎉 GÉNÉRATION TERMINÉE !`);
     console.log(`📊 Statistiques :`);
     console.log(`   • ${createdCount} pages communes générées`);
     console.log(`   • 1 sitemap.xml créé`);
     console.log(`   • ${totalFiles} fichiers au total dans /public`);
     console.log(`   • CSS & JS intégrés (0 requête externe)`);
     console.log(`   • HTML minifié pour vitesse maximale`);
-    console.log(`\\n🚀 Site prêt pour un score 100/100 mobile !`);
+    console.log(`\n🚀 Site prêt pour un score 100/100 mobile !`);
     
   } catch (error) {
     console.error('❌ Erreur fatale:', error);
