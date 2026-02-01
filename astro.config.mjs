@@ -5,5 +5,10 @@ import react from "@astrojs/react";
 export default defineConfig({
   site: 'https://taxi-valenciennes.fr',
   integrations: [tailwind(), react()],
-  output: 'static'
+  output: 'static',
+  vite: {
+    ssr: {
+      noExternal: ['lucide-react']
+    }
+  }
 });
