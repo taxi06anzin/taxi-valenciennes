@@ -1,270 +1,237 @@
 :root {
-  --primary: #0056D2; /* Bleu Google */
-  --primary-dark: #00419e;
-  --secondary: #111111; /* Noir Uber */
-  --accent: #FFC107; /* Jaune Taxi */
-  --whatsapp: #25D366;
-  --bg: #FFFFFF;
-  --surface: #F8F9FA;
-  --text: #202124;
-  --text-light: #5F6368;
-  --radius: 8px;
-  --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --black: #000000;
+  --white: #ffffff;
+  --gold: #C7A978; /* Luxe */
+  --gold-hover: #b59565;
+  --gray-light: #f9f9f9;
+  --gray-text: #666666;
+  --border: #e0e0e0;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.5;
-  font-size: 16px;
-  padding-bottom: 80px; /* Espace pour sticky bar */
+  font-family: 'Inter', sans-serif; /* Moderne et clean */
+  color: var(--black);
+  background: var(--white);
+  line-height: 1.6;
 }
 
-/* --- HEADER COMPACT --- */
+/* --- HEADER TRANSPARENT --- */
 header {
-  background: var(--bg);
-  border-bottom: 1px solid #E0E0E0;
-  position: sticky;
+  position: absolute;
   top: 0;
-  z-index: 100;
-  height: 60px;
-  display: flex;
-  align-items: center;
-}
-
-.vtaxi-header-content {
+  left: 0;
+  width: 100%;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
+  z-index: 1000;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
 }
 
 .vtaxi-logo {
+  color: var(--white);
+  font-size: 24px;
   font-weight: 700;
-  font-size: 18px;
-  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
 .vtaxi-phone-header {
-  background: var(--primary);
-  color: white;
+  color: var(--white);
   font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 50px;
   text-decoration: none;
-  font-size: 14px;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: all 0.3s;
 }
 
-/* --- HERO SECTION (UBER STYLE) --- */
+.vtaxi-phone-header:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+/* --- HERO SECTION "BLACKLANE STYLE" --- */
 .vtaxi-hero {
-  background: var(--secondary);
-  color: white;
-  padding: 40px 16px;
-  text-align: center;
-}
-
-.vtaxi-hero h1 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  line-height: 1.2;
-}
-
-.vtaxi-hero-subtitle {
-  color: #9AA0A6;
-  font-size: 16px;
-  margin-bottom: 24px;
-}
-
-/* --- INFO BOX COMPACTE --- */
-.info-box {
-  background: #202124;
-  border-radius: var(--radius);
-  padding: 16px;
-  margin-bottom: 24px;
-  text-align: left;
-  border-left: 4px solid var(--accent);
-}
-
-.info-box p {
-  font-size: 14px;
-  margin: 0;
-  color: #E8EAED;
-}
-
-/* --- CTAs HERO --- */
-.hero-actions {
+  height: 80vh; /* Grand hero */
+  background: url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.btn-primary, .btn-whatsapp {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 16px;
-  border-radius: var(--radius);
-  font-weight: 600;
+  justify-content: center;
+  position: relative;
+}
+
+.vtaxi-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4); /* Voile sombre */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: var(--white);
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.hero-content p {
   font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+/* --- WIDGET RÉSERVATION FLOTTANT --- */
+.booking-widget {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 4px;
+  display: flex;
+  gap: 15px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  transform: translateY(50%); /* Chevauchement */
+}
+
+.widget-input {
+  flex: 1;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #f5f5f5;
+}
+
+.btn-search {
+  background: var(--gold);
+  color: var(--white);
+  padding: 15px 40px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
   text-decoration: none;
-  width: 100%;
+  transition: background 0.3s;
 }
 
-.btn-primary {
-  background: var(--primary);
-  color: white;
+.btn-search:hover {
+  background: var(--gold-hover);
 }
 
-.btn-whatsapp {
-  background: var(--whatsapp);
-  color: white;
-}
-
-/* --- SECTIONS CONTENU --- */
-.vtaxi-section {
-  padding: 32px 16px;
-  border-bottom: 1px solid #F1F3F4;
+/* --- SECTIONS SERVICES --- */
+.section-services {
+  padding: 100px 20px;
+  text-align: center;
+  background: var(--white);
 }
 
 .section-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--secondary);
-  margin-bottom: 24px;
-}
-
-/* --- TRUST BADGES (GRID) --- */
-.badges-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 32px;
-}
-
-.badge-item {
-  background: var(--surface);
-  padding: 16px;
-  border-radius: var(--radius);
-  text-align: center;
-  border: 1px solid #E0E0E0;
-}
-
-.badge-icon {
-  font-size: 24px;
-  display: block;
-  margin-bottom: 8px;
-}
-
-.badge-text {
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--secondary);
-}
-
-/* --- TARIFS (CARDS) --- */
-.tarif-card {
-  background: white;
-  border: 1px solid #E0E0E0;
-  border-radius: var(--radius);
-  padding: 20px;
-  margin-bottom: 16px;
-  box-shadow: var(--shadow);
-}
-
-.tarif-card h3 {
-  font-size: 18px;
-  margin-bottom: 8px;
-  color: var(--primary);
-}
-
-.tarif-prix {
   font-size: 32px;
-  font-weight: 700;
-  color: var(--secondary);
-  display: block;
-  margin: 12px 0;
+  font-weight: 300;
+  margin-bottom: 60px;
+  color: var(--black);
 }
 
-.ald-tag {
-  background: #E6F4EA;
-  color: #137333;
-  padding: 4px 8px;
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  text-align: left;
+}
+
+.service-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 20px;
   border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
-  display: inline-block;
 }
 
-/* --- STICKY BAR MOBILE (UBER STYLE) --- */
-.sticky-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: white;
-  padding: 12px 16px;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-  display: flex;
-  gap: 12px;
-  z-index: 1000;
+.service-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
-.sticky-btn {
-  flex: 1;
-  padding: 12px;
-  border-radius: var(--radius);
-  text-align: center;
-  font-weight: 600;
-  font-size: 16px;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-
-.sticky-call {
-  background: var(--secondary); /* Noir pour l'appel principal */
-  color: white;
-}
-
-.sticky-wa {
-  background: #E8F5E9;
-  color: #137333;
-  flex: 0 0 60px; /* Juste l'icône */
-  font-size: 24px;
-}
-
-/* --- FOOTER --- */
-footer {
-  background: #F1F3F4;
-  padding: 40px 16px 100px; /* Marge pour sticky bar */
+.service-card p {
+  color: var(--gray-text);
   font-size: 14px;
-  color: var(--text-light);
-  text-align: center;
+  line-height: 1.6;
 }
 
-/* --- RESPONSIVE DESKTOP --- */
-@media (min-width: 768px) {
-  .vtaxi-hero { padding: 80px 0; }
-  .vtaxi-hero h1 { font-size: 48px; }
-  .badges-grid { grid-template-columns: repeat(4, 1fr); }
-  .sticky-bar { display: none; } /* Pas de sticky bar sur PC */
-  .tarif-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+/* --- FOOTER MASSIF --- */
+footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 80px 40px;
+  font-size: 14px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col h4 {
+  color: var(--gray-text);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin-bottom: 10px;
+}
+
+.footer-col a {
+  color: var(--white);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.footer-col a:hover {
+  opacity: 1;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+  .vtaxi-hero h1 { font-size: 32px; }
+  .booking-widget { 
+    flex-direction: column; 
+    transform: translateY(0);
+    margin: 20px;
+  }
+  .widget-input, .btn-search { width: 100%; }
 }
