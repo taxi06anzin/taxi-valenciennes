@@ -114,17 +114,28 @@ function loadTemplates() {
   };
 }
 
-// --- CHARGEMENT ET MINIFICATION DES ASSETS ---
-function loadAssets() {
+// --- COPIE DES ASSETS ---
+function copyAssets() {
   const assetsPath = path.join(__dirname, 'assets');
+  const publicPath = path.join(__dirname, 'public');
   
-  // Lecture du CSS (SANS minification destructive)
-  let css = fs.readFileSync(path.join(assetsPath, 'style.css'), 'utf8');
+  if (!fs.existsSync(publicPath)) {
+    fs.mkdirSync(publicPath, { recursive: true });
+  }
+
+  // Copie CSS
+  fs.copyFileSync(
+    path.join(assetsPath, 'style.css'), 
+    path.join(publicPath, 'style.css')
+  );
   
-  // Lecture du JS (SANS minification destructive)
-  let js = fs.readFileSync(path.join(assetsPath, 'script.js'), 'utf8');
+  // Copie JS
+  fs.copyFileSync(
+    path.join(assetsPath, 'script.js'), 
+    path.join(publicPath, 'script.js')
+  );
   
-  return { css, js };
+  console.log('✅ Assets (CSS/JS) copiés avec succès.');
 }
 
 // --- GÉNÉRATION DU SCHEMA JSON-LD ---
@@ -276,7 +287,7 @@ function generateCommuneContent(commune, variant) {
 }
 
 // --- GÉNÉRATION D'UNE PAGE COMMUNE COMPLÈTE ---
-function generateCommunePage(commune, index, templates, assets) {
+function generateCommunePage(commune, index, templates) {
   const variant = contentVariants[index % contentVariants.length];
   const pageUrl = `${CONFIG.BASE_URL}/taxi-conventionne-${commune.slug}.html`;
   
@@ -302,14 +313,13 @@ function generateCommunePage(commune, index, templates, assets) {
     .replace('{{CANONICAL_URL}}', pageUrl)
     .replace('{{OG_TITLE}}', `Taxi Conventionné VSL ${commune.nom} - Agréé CPAM`)
     .replace('{{OG_DESCRIPTION}}', `Transport médical assis professionnalisé depuis ${commune.nom}. Tiers payant intégral.`)
-    .replace('{{CSS_INLINE}}', `<style>${assets.css}</style>`)
     .replace('{{SCHEMA_JSON}}', generateSchema(commune))
     .replace('{{HEADER}}', header)
     .replace('{{NAVIGATION}}', templates.navigation)
     .replace('{{CONTENT}}', generateCommuneContent(commune, variant))
     .replace('{{FOOTER}}', footer)
     .replace('{{STICKY_CTA}}', stickyCta)
-    .replace('{{JAVASCRIPT}}', `<script>${assets.js}</script>`);
+    .replace('{{JAVASCRIPT}}', `<script src="script.js"></script>`);
   
   // HTML non minifié pour le debug
   return html;
@@ -341,9 +351,11 @@ function generateSitemap() {
 // --- EXÉCUTION PRINCIPALE ---
 async function main() {
   try {
-    console.log('📂 Chargement des templates et assets...');
+    console.log('📂 Chargement des templates...');
     const templates = loadTemplates();
-    const assets = loadAssets();
+    
+    console.log('📦 Copie des assets...');
+    copyAssets();
     
     console.log('🏗️  Génération des pages HTML...');
     let createdCount = 0;
@@ -351,7 +363,7 @@ async function main() {
     // Génération des pages communes
     communes.forEach((commune, index) => {
       try {
-        const html = generateCommunePage(commune, index, templates, assets);
+        const html = generateCommunePage(commune, index, templates);
         const filename = path.join(__dirname, 'public', `taxi-conventionne-${commune.slug}.html`);
         fs.writeFileSync(filename, html);
         createdCount++;
@@ -379,9 +391,9 @@ async function main() {
     console.log(`   • ${createdCount} pages communes générées`);
     console.log(`   • 1 sitemap.xml créé`);
     console.log(`   • ${totalFiles} fichiers au total dans /public`);
-    console.log(`   • CSS & JS intégrés (0 requête externe)`);
-    console.log(`   • HTML minifié pour vitesse maximale`);
-    console.log(`\n🚀 Site prêt pour un score 100/100 mobile !`);
+    console.log(`   • Assets copiés (style.css, script.js)`);
+    console.log(`   • HTML propre et lisible`);
+    console.log(`\n🚀 Site prêt pour production !`);
     
   } catch (error) {
     console.error('❌ Erreur fatale:', error);
