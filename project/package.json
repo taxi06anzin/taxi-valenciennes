@@ -1,14 +1,11 @@
-{
-  "name": "taxi-valenciennes-generator",
-  "version": "2.0.0",
-  "description": "Générateur de site statique ultra-rapide pour Taxi Valenciennes",
-  "type": "module",
-  "scripts": {
-    "generate": "node generator.js",
-    "clean": "rm -rf public/*.html",
-    "build": "npm run clean && npm run generate"
-  },
-  "keywords": ["taxi", "valenciennes", "vsl", "static-site-generator"],
-  "author": "Taxi Valenciennes",
-  "license": "MIT"
-}
+name: "taxi-valenciennes-generator"
+version: "2.0.0"
+description: "Générateur de site statique ultra-rapide pour Taxi Valenciennes"
+type: "module"
+scripts:
+  generate: "node generator.js"
+  build: "node generator.js"
+  clean: "rm -rf public/*.html"
+keywords: ["taxi", "valenciennes", "vsl", "static-site-generator"]
+author: "Taxi Valenciennes"
+license: "MIT"
