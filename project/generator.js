@@ -65,38 +65,38 @@ const communes = [
 const contentVariants = [
   {
     type: 'rassurant',
-    h2: (c) => \`Transport Médical Serein depuis \${c.nom}\`,
-    intro: (c) => \`Habitants de <strong>\${c.nom}</strong>, nous comprenons que les déplacements médicaux nécessitent une attention particulière. Notre service de VSL conventionné a été pensé pour vous apporter tranquillité d'esprit et confort absolu. Depuis votre domicile à \${c.nom} (\${c.cp}), nous assurons votre prise en charge intégrale.\`,
+    h2: (c) => `Transport Médical Serein depuis ${c.nom}`,
+    intro: (c) => `Habitants de <strong>${c.nom}</strong>, nous comprenons que les déplacements médicaux nécessitent une attention particulière. Notre service de VSL conventionné a été pensé pour vous apporter tranquillité d'esprit et confort absolu. Depuis votre domicile à ${c.nom} (${c.cp}), nous assurons votre prise en charge intégrale.`,
     benefit: "Accompagnement personnalisé et écoute bienveillante.",
-    metaDesc: (c) => \`Taxi Conventionné VSL \${c.nom} (\${c.cp}) pour transport médical serein vers CHU Lille. Chauffeurs bienveillants et accompagnement personnalisé. Conventionné CPAM 100%.\`
+    metaDesc: (c) => `Taxi Conventionné VSL ${c.nom} (${c.cp}) pour transport médical serein vers CHU Lille. Chauffeurs bienveillants et accompagnement personnalisé. Conventionné CPAM 100%.`
   },
   {
     type: 'technique',
-    h2: (c) => \`Conventionnement CPAM & Tiers Payant à \${c.nom}\`,
-    intro: (c) => \`En tant que transporteur agréé par la Caisse Primaire d'Assurance Maladie, nous garantissons aux résidents de <strong>\${c.nom} (\${c.cp})</strong> une gestion administrative simplifiée. Grâce à notre lecteur de carte vitale embarqué, la télétransmission est immédiate.\`,
+    h2: (c) => `Conventionnement CPAM & Tiers Payant à ${c.nom}`,
+    intro: (c) => `En tant que transporteur agréé par la Caisse Primaire d'Assurance Maladie, nous garantissons aux résidents de <strong>${c.nom} (${c.cp})</strong> une gestion administrative simplifiée. Grâce à notre lecteur de carte vitale embarqué, la télétransmission est immédiate.`,
     benefit: "Gestion administrative complète : zéro papier à gérer pour vous.",
-    metaDesc: (c) => \`Taxi Conventionné VSL Agréé CPAM \${c.nom} : Tiers payant intégral et télétransmission directe. Transport médical sans avance de frais pour ALD depuis \${c.nom}.\`
+    metaDesc: (c) => `Taxi Conventionné VSL Agréé CPAM ${c.nom} : Tiers payant intégral et télétransmission directe. Transport médical sans avance de frais pour ALD depuis ${c.nom}.`
   },
   {
     type: 'pratique',
-    h2: (c) => \`Ponctualité et Efficacité au départ de \${c.nom}\`,
-    intro: (c) => \`Le temps est précieux, surtout lors de rendez-vous médicaux. Depuis <strong>\${c.nom}</strong>, nos chauffeurs empruntent les itinéraires les plus fluides pour rejoindre les centres hospitaliers de la région. Nous nous engageons sur une ponctualité irréprochable.\`,
+    h2: (c) => `Ponctualité et Efficacité au départ de ${c.nom}`,
+    intro: (c) => `Le temps est précieux, surtout lors de rendez-vous médicaux. Depuis <strong>${c.nom}</strong>, nos chauffeurs empruntent les itinéraires les plus fluides pour rejoindre les centres hospitaliers de la région. Nous nous engageons sur une ponctualité irréprochable.`,
     benefit: "Trajets optimisés et respect strict des horaires de convocation.",
-    metaDesc: (c) => \`Taxi Conventionné VSL médical \${c.nom} : Ponctualité garantie pour vos rendez-vous hôpital. Trajet direct et rapide depuis \${c.nom} (\${c.cp}). Conventionné Sécu.\`
+    metaDesc: (c) => `Taxi Conventionné VSL médical ${c.nom} : Ponctualité garantie pour vos rendez-vous hôpital. Trajet direct et rapide depuis ${c.nom} (${c.cp}). Conventionné Sécu.`
   },
   {
     type: 'local',
-    h2: (c) => \`Votre Taxi Conventionné VSL de Référence à \${c.nom}\`,
-    intro: (c) => \`Ancrés localement, nous connaissons parfaitement <strong>\${c.nom}</strong> et ses environs (\${c.cp}). Cette expertise du terrain nous permet de vous récupérer rapidement, que vous habitiez en centre-ville ou dans les quartiers résidentiels périphériques.\`,
+    h2: (c) => `Votre Taxi Conventionné VSL de Référence à ${c.nom}`,
+    intro: (c) => `Ancrés localement, nous connaissons parfaitement <strong>${c.nom}</strong> et ses environs (${c.cp}). Cette expertise du terrain nous permet de vous récupérer rapidement, que vous habitiez en centre-ville ou dans les quartiers résidentiels périphériques.`,
     benefit: "Une connaissance parfaite de votre secteur géographique.",
-    metaDesc: (c) => \`Taxi Conventionné VSL de proximité : Service basé près de \${c.nom}. Connaissance parfaite du secteur \${c.cp} pour un ramassage rapide vers les hôpitaux.\`
+    metaDesc: (c) => `Taxi Conventionné VSL de proximité : Service basé près de ${c.nom}. Connaissance parfaite du secteur ${c.cp} pour un ramassage rapide vers les hôpitaux.`
   },
   {
     type: 'professionnel',
-    h2: (c) => \`Transport Sanitaire VSL de Haute Qualité depuis \${c.nom}\`,
-    intro: (c) => \`Exigez le meilleur pour votre santé. Au départ de <strong>\${c.nom}</strong>, nous mettons à votre disposition une flotte de véhicules récents, climatisés et désinfectés après chaque course. Nos chauffeurs sont formés aux premiers secours.\`,
+    h2: (c) => `Transport Sanitaire VSL de Haute Qualité depuis ${c.nom}`,
+    intro: (c) => `Exigez le meilleur pour votre santé. Au départ de <strong>${c.nom}</strong>, nous mettons à votre disposition une flotte de véhicules récents, climatisés et désinfectés après chaque course. Nos chauffeurs sont formés aux premiers secours.`,
     benefit: "Confort premium et hygiène irréprochable garantis.",
-    metaDesc: (c) => \`Taxi Conventionné VSL transport médical haut de gamme depuis \${c.nom}. Véhicules confortables et désinfectés. Chauffeurs formés. Prise en charge CPAM 100%.\`
+    metaDesc: (c) => `Taxi Conventionné VSL transport médical haut de gamme depuis ${c.nom}. Véhicules confortables et désinfectés. Chauffeurs formés. Prise en charge CPAM 100%.`
   }
 ];
 
@@ -145,10 +145,10 @@ function generateSchema(commune) {
   return JSON.stringify({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": \`Taxi Conventionné VSL \${commune.nom}\`,
-    "telephone": \`+33\${CONFIG.PHONE_CALL.substring(1)}\`,
-    "image": \`\${CONFIG.BASE_URL}/assets/taxi-vsl-valenciennes.jpg\`,
-    "url": \`\${CONFIG.BASE_URL}/taxi-conventionne-\${commune.slug}.html\`,
+    "name": `Taxi Conventionné VSL ${commune.nom}`,
+    "telephone": `+33${CONFIG.PHONE_CALL.substring(1)}`,
+    "image": `${CONFIG.BASE_URL}/assets/taxi-vsl-valenciennes.jpg`,
+    "url": `${CONFIG.BASE_URL}/taxi-conventionne-${commune.slug}.html`,
     "email": "contact@taxi-valenciennes.fr",
     "address": {
       "@type": "PostalAddress",
@@ -172,25 +172,25 @@ function generateSchema(commune) {
     ],
     "priceRange": "€€",
     "serviceType": "VSL Transport médical conventionné CPAM",
-    "areaServed": \`\${commune.nom} et environs\`
+    "areaServed": `${commune.nom} et environs`
   }, null, 0);
 }
 
 // --- GÉNÉRATION DU CONTENU D'UNE PAGE COMMUNE ---
 function generateCommuneContent(commune, variant) {
   const tempsEstime = parseInt(commune.duree) + 5;
-  const whatsappMsg = encodeURIComponent(\`Bonjour, je souhaite réserver un taxi VSL depuis \${commune.nom}.\`);
+  const whatsappMsg = encodeURIComponent(`Bonjour, je souhaite réserver un taxi VSL depuis ${commune.nom}.`);
   
   const voisines = communes
     .filter(c => c.slug !== commune.slug)
     .sort(() => 0.5 - Math.random())
     .slice(0, 4);
 
-  return \`
+  return `
   <section class="vtaxi-hero">
     <div class="vtaxi-container">
-      <h1>Taxi Conventionné VSL \${commune.nom} \${commune.cp} | Transport Médical CPAM</h1>
-      <p class="vtaxi-hero-subtitle">Votre trajet médical depuis \${commune.nom} vers les hôpitaux (CHU Lille, Valenciennes)</p>
+      <h1>Taxi Conventionné VSL ${commune.nom} ${commune.cp} | Transport Médical CPAM</h1>
+      <p class="vtaxi-hero-subtitle">Votre trajet médical depuis ${commune.nom} vers les hôpitaux (CHU Lille, Valenciennes)</p>
       
       <!-- BLOC DISPONIBILITÉ -->
       <div style="background: rgba(255,255,255,0.95); color: #333; padding: 15px; border-radius: 8px; margin: 20px auto; max-width: 800px; border-left: 5px solid #ff6600; text-align: left;">
@@ -201,20 +201,20 @@ function generateCommuneContent(commune, variant) {
       </div>
 
       <div style="margin-top: 30px;">
-        <a href="tel:\${CONFIG.PHONE_CALL}" class="vtaxi-cta">📞 Appeler le \${CONFIG.PHONE_CALL_DISPLAY}</a>
-        <a href="https://wa.me/33\${CONFIG.PHONE_WHATSAPP_CLEAN}?text=\${whatsappMsg}" class="vtaxi-cta vtaxi-cta-whatsapp">💬 WhatsApp</a>
+        <a href="tel:${CONFIG.PHONE_CALL}" class="vtaxi-cta">📞 Appeler le ${CONFIG.PHONE_CALL_DISPLAY}</a>
+        <a href="https://wa.me/33${CONFIG.PHONE_WHATSAPP_CLEAN}?text=${whatsappMsg}" class="vtaxi-cta vtaxi-cta-whatsapp">💬 WhatsApp</a>
       </div>
     </div>
   </section>
 
   <section class="vtaxi-section">
     <div class="vtaxi-container">
-      <h2 class="vtaxi-section-title">\${variant.h2(commune)}</h2>
+      <h2 class="vtaxi-section-title">${variant.h2(commune)}</h2>
       
       <div class="vtaxi-empathy-box">
-        <h3>ℹ️ Info Transport \${commune.nom}</h3>
-        <p>\${variant.intro(commune)}</p>
-        <p style="margin-top: 15px; font-weight: 600; color: var(--vtaxi-blue-dark);">✨ Notre engagement : \${variant.benefit}</p>
+        <h3>ℹ️ Info Transport ${commune.nom}</h3>
+        <p>${variant.intro(commune)}</p>
+        <p style="margin-top: 15px; font-weight: 600; color: var(--vtaxi-blue-dark);">✨ Notre engagement : ${variant.benefit}</p>
       </div>
 
       <div class="vtaxi-trust-badges">
@@ -236,15 +236,15 @@ function generateCommuneContent(commune, variant) {
         </div>
       </div>
 
-      <h2 class="vtaxi-section-title">Tarifs & Temps de Trajet depuis \${commune.nom}</h2>
+      <h2 class="vtaxi-section-title">Tarifs & Temps de Trajet depuis ${commune.nom}</h2>
 
       <div class="vtaxi-tarif-grid">
         <div class="vtaxi-tarif-card">
           <h3>CHU Lille (Huriez/Cœur)</h3>
-          <p>📍 Départ : \${commune.nom} (\${commune.cp})</p>
-          <p>⏱️ Temps estimé : <strong>~\${tempsEstime} min</strong></p>
-          <p style="margin-top: 15px; font-size: 14px; color: #666;">Distance : \${commune.distance} km</p>
-          <span class="vtaxi-prix">\${commune.tarif}€ <span style="font-size: 16px; font-weight: normal; color: #666;">(estimation)</span></span>
+          <p>📍 Départ : ${commune.nom} (${commune.cp})</p>
+          <p>⏱️ Temps estimé : <strong>~${tempsEstime} min</strong></p>
+          <p style="margin-top: 15px; font-size: 14px; color: #666;">Distance : ${commune.distance} km</p>
+          <span class="vtaxi-prix">${commune.tarif}€ <span style="font-size: 16px; font-weight: normal; color: #666;">(estimation)</span></span>
           
           <div style="background: #e8f5e9; padding: 10px; border-radius: 5px; margin-top: 15px;">
             <p style="color: #2e7d32; font-weight: bold; margin: 0;">✅ ALD 100% : 0€ à avancer</p>
@@ -254,10 +254,10 @@ function generateCommuneContent(commune, variant) {
 
         <div class="vtaxi-tarif-card">
           <h3>Centre Oscar Lambret</h3>
-          <p>📍 Départ : \${commune.nom} (\${commune.cp})</p>
-          <p>⏱️ Temps estimé : <strong>~\${tempsEstime} min</strong></p>
+          <p>📍 Départ : ${commune.nom} (${commune.cp})</p>
+          <p>⏱️ Temps estimé : <strong>~${tempsEstime} min</strong></p>
           <p style="margin-top: 15px; font-size: 14px; color: #666;">Centre de lutte contre le cancer</p>
-          <span class="vtaxi-prix">\${commune.tarif}€ <span style="font-size: 16px; font-weight: normal; color: #666;">(estimation)</span></span>
+          <span class="vtaxi-prix">${commune.tarif}€ <span style="font-size: 16px; font-weight: normal; color: #666;">(estimation)</span></span>
           
           <div style="background: #e8f5e9; padding: 10px; border-radius: 5px; margin-top: 15px;">
             <p style="color: #2e7d32; font-weight: bold; margin: 0;">✅ ALD 100% : 0€ à avancer</p>
@@ -270,12 +270,12 @@ function generateCommuneContent(commune, variant) {
 
   <section class="vtaxi-section" style="background: var(--vtaxi-gray-light);">
     <div class="vtaxi-container">
-      <h2 class="vtaxi-section-title">Communes Voisines de \${commune.nom}</h2>
+      <h2 class="vtaxi-section-title">Communes Voisines de ${commune.nom}</h2>
       <div class="vtaxi-grid-communes">
-        \${voisines.map(v => \`<a href="taxi-conventionne-\${v.slug}.html" class="vtaxi-commune-card">
-          <h3>VSL \${v.nom}</h3>
-          <p>\${v.cp} • Agréé CPAM</p>
-        </a>\`).join('\\n        ')}
+        ${voisines.map(v => `<a href="taxi-conventionne-${v.slug}.html" class="vtaxi-commune-card">
+          <h3>VSL ${v.nom}</h3>
+          <p>${v.cp} • Agréé CPAM</p>
+        </a>`).join('\\n        ')}
       </div>
       
       <div style="text-align: center; margin-top: 40px;">
@@ -285,13 +285,13 @@ function generateCommuneContent(commune, variant) {
       </div>
     </div>
   </section>
-  \`;
+  `;
 }
 
 // --- GÉNÉRATION D'UNE PAGE COMMUNE COMPLÈTE ---
 function generateCommunePage(commune, index, templates, assets) {
   const variant = contentVariants[index % contentVariants.length];
-  const pageUrl = \`\${CONFIG.BASE_URL}/taxi-conventionne-\${commune.slug}.html\`;
+  const pageUrl = `${CONFIG.BASE_URL}/taxi-conventionne-${commune.slug}.html`;
   
   // Remplacement des variables dans les templates
   const header = templates.header
@@ -310,19 +310,19 @@ function generateCommunePage(commune, index, templates, assets) {
   
   // Génération du HTML final
   let html = templates.base
-    .replace('{{TITLE}}', \`Taxi Conventionné VSL \${commune.nom} \${commune.cp} | Transport Médical CPAM 100%\`)
+    .replace('{{TITLE}}', `Taxi Conventionné VSL ${commune.nom} ${commune.cp} | Transport Médical CPAM 100%`)
     .replace('{{DESCRIPTION}}', variant.metaDesc(commune))
     .replace('{{CANONICAL_URL}}', pageUrl)
-    .replace('{{OG_TITLE}}', \`Taxi Conventionné VSL \${commune.nom} - Agréé CPAM\`)
-    .replace('{{OG_DESCRIPTION}}', \`Transport médical assis professionnalisé depuis \${commune.nom}. Tiers payant intégral.\`)
-    .replace('{{CSS_INLINE}}', \`<style>\${assets.css}</style>\`)
+    .replace('{{OG_TITLE}}', `Taxi Conventionné VSL ${commune.nom} - Agréé CPAM`)
+    .replace('{{OG_DESCRIPTION}}', `Transport médical assis professionnalisé depuis ${commune.nom}. Tiers payant intégral.`)
+    .replace('{{CSS_INLINE}}', `<style>${assets.css}</style>`)
     .replace('{{SCHEMA_JSON}}', generateSchema(commune))
     .replace('{{HEADER}}', header)
     .replace('{{NAVIGATION}}', templates.navigation)
     .replace('{{CONTENT}}', generateCommuneContent(commune, variant))
     .replace('{{FOOTER}}', footer)
     .replace('{{STICKY_CTA}}', stickyCta)
-    .replace('{{JAVASCRIPT}}', \`<script>\${assets.js}</script>\`);
+    .replace('{{JAVASCRIPT}}', `<script>${assets.js}</script>`);
   
   // Minification HTML basique
   html = html
@@ -336,24 +336,24 @@ function generateCommunePage(commune, index, templates, assets) {
 
 // --- GÉNÉRATION DU SITEMAP.XML ---
 function generateSitemap() {
-  let sitemap = \`<?xml version="1.0" encoding="UTF-8"?>
+  let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>\${CONFIG.BASE_URL}/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>\${CONFIG.BASE_URL}/taxi-aeroport-valenciennes-lille-charleroi-bruxelles.html</loc><priority>0.8</priority></url>
-  <url><loc>\${CONFIG.BASE_URL}/taxi-valenciennes-tarif.html</loc><priority>0.8</priority></url>
-  <url><loc>\${CONFIG.BASE_URL}/contact-taxi-valenciennes-reservation-24h-24.html</loc><priority>0.8</priority></url>
-\`;
+  <url><loc>${CONFIG.BASE_URL}/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>${CONFIG.BASE_URL}/taxi-aeroport-valenciennes-lille-charleroi-bruxelles.html</loc><priority>0.8</priority></url>
+  <url><loc>${CONFIG.BASE_URL}/taxi-valenciennes-tarif.html</loc><priority>0.8</priority></url>
+  <url><loc>${CONFIG.BASE_URL}/contact-taxi-valenciennes-reservation-24h-24.html</loc><priority>0.8</priority></url>
+`;
 
   communes.forEach(commune => {
-    sitemap += \`  <url>
-    <loc>\${CONFIG.BASE_URL}/taxi-conventionne-\${commune.slug}.html</loc>
-    <lastmod>\${new Date().toISOString().split('T')[0]}</lastmod>
+    sitemap += `  <url>
+    <loc>${CONFIG.BASE_URL}/taxi-conventionne-${commune.slug}.html</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <priority>0.9</priority>
   </url>
-\`;
+`;
   });
 
-  sitemap += \`</urlset>\`;
+  sitemap += `</urlset>`;
   return sitemap;
 }
 
@@ -371,19 +371,19 @@ async function main() {
     communes.forEach((commune, index) => {
       try {
         const html = generateCommunePage(commune, index, templates, assets);
-        const filename = path.join(__dirname, 'public', \`taxi-conventionne-\${commune.slug}.html\`);
+        const filename = path.join(__dirname, 'public', `taxi-conventionne-${commune.slug}.html`);
         fs.writeFileSync(filename, html);
         createdCount++;
         
         if (createdCount % 10 === 0) {
-          console.log(\`   ✅ \${createdCount}/\${communes.length} pages générées...\`);
+          console.log(`   ✅ ${createdCount}/${communes.length} pages générées...`);
         }
       } catch (err) {
-        console.error(\`❌ Erreur sur \${commune.nom}:\`, err.message);
+        console.error(`❌ Erreur sur ${commune.nom}:`, err.message);
       }
     });
     
-    console.log(\`✅ \${createdCount} pages communes créées avec succès.\`);
+    console.log(`✅ ${createdCount} pages communes créées avec succès.`);
     
     // Génération du sitemap
     console.log('🗺️  Génération du Sitemap XML...');
@@ -393,14 +393,14 @@ async function main() {
     
     // Statistiques finales
     const totalFiles = fs.readdirSync(path.join(__dirname, 'public')).length;
-    console.log(\`\\n🎉 GÉNÉRATION TERMINÉE !\`);
-    console.log(\`📊 Statistiques :\`);
-    console.log(\`   • \${createdCount} pages communes générées\`);
-    console.log(\`   • 1 sitemap.xml créé\`);
-    console.log(\`   • \${totalFiles} fichiers au total dans /public\`);
-    console.log(\`   • CSS & JS intégrés (0 requête externe)\`);
-    console.log(\`   • HTML minifié pour vitesse maximale\`);
-    console.log(\`\\n🚀 Site prêt pour un score 100/100 mobile !\`);
+    console.log(`\\n🎉 GÉNÉRATION TERMINÉE !`);
+    console.log(`📊 Statistiques :`);
+    console.log(`   • ${createdCount} pages communes générées`);
+    console.log(`   • 1 sitemap.xml créé`);
+    console.log(`   • ${totalFiles} fichiers au total dans /public`);
+    console.log(`   • CSS & JS intégrés (0 requête externe)`);
+    console.log(`   • HTML minifié pour vitesse maximale`);
+    console.log(`\\n🚀 Site prêt pour un score 100/100 mobile !`);
     
   } catch (error) {
     console.error('❌ Erreur fatale:', error);
