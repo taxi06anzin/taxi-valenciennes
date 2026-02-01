@@ -1,0 +1,1001 @@
+:root {
+  --vtaxi-blue-dark: #0a4a8a;
+  --vtaxi-blue: #1e73be;
+  --vtaxi-orange: #ff6600;
+  --vtaxi-orange-light: #ff8833;
+  --vtaxi-green: #28a745;
+  --vtaxi-gray-light: #f8f9fa;
+  --vtaxi-gray: #e9ecef;
+  --vtaxi-text: #333;
+  --vtaxi-radius: 10px;
+  --vtaxi-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --vtaxi-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --vtaxi-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--vtaxi-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-bottom: 80px;
+}
+
+.vtaxi-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  background: linear-gradient(135deg, var(--vtaxi-blue-dark) 0%, var(--vtaxi-blue) 100%);
+  color: white;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--vtaxi-shadow);
+}
+
+.vtaxi-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.vtaxi-logo {
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--vtaxi-transition);
+}
+
+.vtaxi-logo:hover {
+  transform: translateY(-2px);
+}
+
+.vtaxi-phone-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 12px 24px;
+  border-radius: var(--vtaxi-radius);
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  transition: var(--vtaxi-transition);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.vtaxi-phone-header:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+nav {
+  background: white;
+  box-shadow: var(--vtaxi-shadow);
+  position: sticky;
+  top: 70px;
+  z-index: 999;
+}
+
+#top-menu {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  padding: 15px 20px;
+}
+
+#top-menu li a {
+  text-decoration: none;
+  color: var(--vtaxi-blue-dark);
+  padding: 12px 20px;
+  border-radius: var(--vtaxi-radius);
+  font-weight: 600;
+  transition: var(--vtaxi-transition);
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+#top-menu li a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--vtaxi-orange);
+  transition: width 0.3s ease;
+}
+
+#top-menu li a:hover {
+  background: var(--vtaxi-gray-light);
+  color: var(--vtaxi-orange);
+}
+
+#top-menu li a:hover::before {
+  width: 100%;
+}
+
+.vtaxi-hero {
+  background: linear-gradient(135deg, var(--vtaxi-blue-dark) 0%, var(--vtaxi-blue) 50%, var(--vtaxi-orange) 100%);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.vtaxi-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: pulse 15s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+  50% { transform: scale(1.1) rotate(180deg); opacity: 0.8; }
+}
+
+.vtaxi-hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease;
+}
+
+.vtaxi-hero-subtitle {
+  font-size: 24px;
+  margin-bottom: 40px;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vtaxi-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin: 60px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.vtaxi-stat {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: var(--vtaxi-radius);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: var(--vtaxi-transition);
+}
+
+.vtaxi-stat:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.vtaxi-stat-number {
+  font-size: 48px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.vtaxi-stat-label {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.vtaxi-services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin: 60px auto;
+  max-width: 1100px;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vtaxi-service-card:nth-child(odd) {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.vtaxi-service-card:nth-child(even) {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.vtaxi-service-card:nth-child(1) {
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.vtaxi-service-card:nth-child(2) {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.vtaxi-service-card:nth-child(3) {
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.vtaxi-service-card:nth-child(4) {
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+.vtaxi-service-card {
+  background: white;
+  padding: 40px;
+  border-radius: var(--vtaxi-radius);
+  box-shadow: var(--vtaxi-shadow);
+  transition: var(--vtaxi-transition);
+  text-align: center;
+  border: 3px solid transparent;
+}
+
+.vtaxi-service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--vtaxi-shadow-hover);
+  border-color: var(--vtaxi-orange);
+}
+
+.vtaxi-service-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.vtaxi-service-card h3 {
+  color: var(--vtaxi-blue-dark);
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.vtaxi-service-card p {
+  color: #666;
+  line-height: 1.8;
+}
+
+.vtaxi-cta {
+  display: inline-block;
+  background: var(--vtaxi-orange);
+  color: white;
+  padding: 18px 40px;
+  border-radius: var(--vtaxi-radius);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
+  transition: var(--vtaxi-transition);
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+}
+
+.vtaxi-cta::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.vtaxi-cta:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.vtaxi-cta:hover {
+  background: var(--vtaxi-orange-light);
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4);
+}
+
+.vtaxi-cta-secondary {
+  background: var(--vtaxi-blue);
+  box-shadow: 0 4px 15px rgba(30, 115, 190, 0.3);
+}
+
+.vtaxi-cta-secondary:hover {
+  background: var(--vtaxi-blue-dark);
+  box-shadow: 0 10px 30px rgba(30, 115, 190, 0.4);
+}
+
+.vtaxi-cta-whatsapp {
+  background: #25D366;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.vtaxi-cta-whatsapp:hover {
+  background: #20BA5A;
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+}
+
+.vtaxi-sticky-cta-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  padding: 15px 20px;
+  z-index: 9999;
+  display: none;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.vtaxi-sticky-cta-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vtaxi-sticky-cta-bar .vtaxi-cta {
+  flex: 1;
+  margin: 0;
+  padding: 16px 20px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.vtaxi-floating-call-btn {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 65px;
+  height: 65px;
+  background: var(--vtaxi-orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 25px rgba(255, 102, 0, 0.4);
+  z-index: 9998;
+  animation: pulse-float 2s ease-in-out infinite;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+@keyframes pulse-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 6px 25px rgba(255, 102, 0, 0.4);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(255, 102, 0, 0.5);
+  }
+}
+
+.vtaxi-floating-call-btn:hover {
+  background: var(--vtaxi-orange-light);
+  animation: none;
+  transform: scale(1.1);
+}
+
+.vtaxi-section {
+  padding: 80px 20px;
+}
+
+.vtaxi-section-title {
+  font-size: 42px;
+  color: var(--vtaxi-blue-dark);
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.vtaxi-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--vtaxi-orange) 0%, var(--vtaxi-blue) 100%);
+  border-radius: 2px;
+}
+
+.vtaxi-trust-badges {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+@media (max-width: 968px) {
+  .vtaxi-trust-badges {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .vtaxi-trust-badges {
+    grid-template-columns: 1fr;
+  }
+}
+
+.vtaxi-trust-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: var(--vtaxi-radius);
+  box-shadow: var(--vtaxi-shadow);
+  min-width: 150px;
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.vtaxi-trust-badge:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.vtaxi-trust-badge:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.vtaxi-trust-badge:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.vtaxi-trust-badge:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.vtaxi-trust-badge-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.vtaxi-trust-badge-text {
+  font-weight: 600;
+  color: var(--vtaxi-blue-dark);
+}
+
+.vtaxi-empathy-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-left: 5px solid var(--vtaxi-green);
+  padding: 30px;
+  border-radius: var(--vtaxi-radius);
+  margin: 40px 0;
+  box-shadow: var(--vtaxi-shadow);
+}
+
+.vtaxi-empathy-box h3 {
+  color: var(--vtaxi-green);
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.vtaxi-empathy-box p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #2e7d32;
+}
+
+.vtaxi-grid-communes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.vtaxi-commune-card {
+  background: white;
+  padding: 25px;
+  border-radius: var(--vtaxi-radius);
+  box-shadow: var(--vtaxi-shadow);
+  transition: var(--vtaxi-transition);
+  text-align: center;
+  text-decoration: none;
+  color: var(--vtaxi-text);
+  border: 2px solid transparent;
+}
+
+.vtaxi-commune-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--vtaxi-shadow-hover);
+  border-color: var(--vtaxi-blue);
+}
+
+.vtaxi-commune-card h3 {
+  color: var(--vtaxi-blue-dark);
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.vtaxi-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 5px;
+}
+
+.vtaxi-badge.ald {
+  background: #d4edda;
+  color: #155724;
+}
+
+.vtaxi-badge.non-ald {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.vtaxi-badge.cpam {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.vtaxi-tarif-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin: 40px auto;
+  max-width: 1100px;
+}
+
+.vtaxi-tarif-card:nth-child(odd) {
+  animation: slideInLeft 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.vtaxi-tarif-card:nth-child(even) {
+  animation: slideInRight 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.vtaxi-tarif-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.vtaxi-tarif-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.vtaxi-tarif-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.vtaxi-tarif-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.vtaxi-tarif-card {
+  background: white;
+  padding: 40px;
+  border-radius: var(--vtaxi-radius);
+  box-shadow: var(--vtaxi-shadow);
+  border-left: 5px solid var(--vtaxi-orange);
+  transition: var(--vtaxi-transition);
+}
+
+.vtaxi-tarif-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--vtaxi-shadow-hover);
+}
+
+.vtaxi-tarif-card h3 {
+  color: var(--vtaxi-blue-dark);
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.vtaxi-prix {
+  font-size: 48px;
+  color: var(--vtaxi-orange);
+  font-weight: 700;
+  display: block;
+  margin: 20px 0;
+}
+
+.vtaxi-prix-small {
+  font-size: 18px;
+  color: #666;
+}
+
+.vtaxi-form {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 50px;
+  border-radius: var(--vtaxi-radius);
+  box-shadow: var(--vtaxi-shadow-hover);
+}
+
+.vtaxi-form-group {
+  margin-bottom: 25px;
+}
+
+.vtaxi-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--vtaxi-blue-dark);
+}
+
+.vtaxi-form-group input,
+.vtaxi-form-group select,
+.vtaxi-form-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid var(--vtaxi-gray);
+  border-radius: var(--vtaxi-radius);
+  font-size: 16px;
+  transition: var(--vtaxi-transition);
+  font-family: inherit;
+}
+
+.vtaxi-form-group input:focus,
+.vtaxi-form-group select:focus,
+.vtaxi-form-group textarea:focus {
+  outline: none;
+  border-color: var(--vtaxi-blue);
+  box-shadow: 0 0 0 3px rgba(30, 115, 190, 0.1);
+}
+
+.vtaxi-form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.course-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.course-card {
+  background: white;
+  padding: 30px;
+  border-radius: var(--vtaxi-radius);
+  border: 3px solid var(--vtaxi-gray);
+  cursor: pointer;
+  transition: var(--vtaxi-transition);
+  text-align: center;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--vtaxi-shadow-hover);
+}
+
+.course-card.active {
+  border-color: var(--vtaxi-blue);
+  background: linear-gradient(135deg, rgba(30, 115, 190, 0.05) 0%, rgba(255, 102, 0, 0.05) 100%);
+}
+
+.course-card .icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.course-card h3 {
+  color: var(--vtaxi-blue-dark);
+  margin-bottom: 10px;
+}
+
+.remboursement-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.ald-option,
+.non-ald-option {
+  display: block;
+  background: white;
+  padding: 20px;
+  border-radius: var(--vtaxi-radius);
+  border: 3px solid var(--vtaxi-gray);
+  cursor: pointer;
+  transition: var(--vtaxi-transition);
+}
+
+.ald-option input,
+.non-ald-option input {
+  margin-right: 10px;
+}
+
+.ald-option:has(input:checked) {
+  border-color: var(--vtaxi-green);
+  background: rgba(40, 167, 69, 0.05);
+}
+
+.non-ald-option:has(input:checked) {
+  border-color: var(--vtaxi-orange);
+  background: rgba(255, 102, 0, 0.05);
+}
+
+.taux {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+  color: var(--vtaxi-blue-dark);
+}
+
+.droits-transport-medical {
+  background: var(--vtaxi-gray-light);
+  padding: 30px;
+  border-radius: var(--vtaxi-radius);
+  margin: 30px 0;
+}
+
+.droits-list {
+  list-style: none;
+  padding: 0;
+}
+
+.droits-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--vtaxi-gray);
+}
+
+.droits-list li:last-child {
+  border-bottom: none;
+}
+
+.gratuit {
+  color: var(--vtaxi-green);
+  font-weight: 700;
+}
+
+.vtaxi-footer {
+  background: linear-gradient(135deg, var(--vtaxi-blue-dark) 0%, var(--vtaxi-blue) 100%);
+  color: white;
+  padding: 60px 20px 30px;
+}
+
+.vtaxi-footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.vtaxi-footer-column h3 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.vtaxi-footer-column ul {
+  list-style: none;
+}
+
+.vtaxi-footer-column ul li {
+  margin-bottom: 12px;
+}
+
+.vtaxi-footer-column a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: var(--vtaxi-transition);
+}
+
+.vtaxi-footer-column a:hover {
+  color: var(--vtaxi-orange);
+  padding-left: 5px;
+}
+
+.vtaxi-footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0.8;
+}
+
+.faq-item {
+  background: white;
+  padding: 30px;
+  border-radius: var(--vtaxi-radius);
+  box-shadow: var(--vtaxi-shadow);
+  margin-bottom: 20px;
+  border-left: 5px solid var(--vtaxi-blue);
+}
+
+.faq-item h4 {
+  color: var(--vtaxi-blue-dark);
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 100px;
+  }
+
+  .vtaxi-sticky-cta-bar {
+    display: block;
+  }
+
+  .vtaxi-floating-call-btn {
+    bottom: 90px;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+
+  .vtaxi-hero h1 {
+    font-size: 32px;
+  }
+
+  .vtaxi-hero-subtitle {
+    font-size: 18px;
+  }
+
+  #top-menu {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  #top-menu li a {
+    border-radius: 0;
+  }
+
+  .vtaxi-form {
+    padding: 30px 20px;
+  }
+
+  .vtaxi-section {
+    padding: 40px 20px;
+  }
+
+  .vtaxi-section-title {
+    font-size: 32px;
+  }
+
+  .vtaxi-phone-header {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .vtaxi-sticky-cta-content {
+    flex-direction: column;
+  }
+
+  .vtaxi-cta {
+    font-size: 16px;
+    padding: 14px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vtaxi-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .vtaxi-services {
+    grid-template-columns: 1fr;
+  }
+
+  .vtaxi-tarif-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vtaxi-service-card:nth-child(odd),
+  .vtaxi-service-card:nth-child(even),
+  .vtaxi-tarif-card:nth-child(odd),
+  .vtaxi-tarif-card:nth-child(even) {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .course-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .remboursement-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .vtaxi-floating-call-btn {
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+    right: 15px;
+    bottom: 85px;
+  }
+}

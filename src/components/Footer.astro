@@ -1,0 +1,45 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-primary text-slate-300 py-12 mt-20">
+  <div class="container mx-auto px-4 grid md:grid-cols-4 gap-8">
+    <div>
+      <h3 class="text-white text-xl font-bold mb-4 font-heading">Taxi Valenciennes</h3>
+      <p class="mb-4">Votre partenaire de confiance pour tous vos déplacements depuis 2008. Disponible 24h/24 et 7j/7.</p>
+      <a href="tel:0698432710" class="text-white font-bold text-lg hover:text-accent transition-colors">06 98 43 27 10</a>
+    </div>
+    
+    <div>
+      <h3 class="text-white text-xl font-bold mb-4 font-heading">Services</h3>
+      <ul class="space-y-2">
+        <li><a href="/services/aeroport" class="hover:text-accent transition-colors">Transferts Aéroports</a></li>
+        <li><a href="/services/medical" class="hover:text-accent transition-colors">Transport VSL CPAM</a></li>
+        <li><a href="/services/scolaire" class="hover:text-accent transition-colors">Transport Scolaire</a></li>
+        <li><a href="/services/colis" class="hover:text-accent transition-colors">Colis Express</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-white text-xl font-bold mb-4 font-heading">Zones d'intervention</h3>
+      <ul class="space-y-2 text-sm">
+        <li><a href="/anzin" class="hover:text-accent transition-colors">Taxi Anzin</a></li>
+        <li><a href="/saint-saulve" class="hover:text-accent transition-colors">Taxi Saint-Saulve</a></li>
+        <li><a href="/marly" class="hover:text-accent transition-colors">Taxi Marly</a></li>
+        <li><a href="/denain" class="hover:text-accent transition-colors">Taxi Denain</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-white text-xl font-bold mb-4 font-heading">Légal</h3>
+      <ul class="space-y-2 text-sm">
+        <li><a href="/mentions-legales" class="hover:text-accent transition-colors">Mentions Légales</a></li>
+        <li><a href="/sitemap.xml" class="hover:text-accent transition-colors">Plan du site</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="container mx-auto px-4 mt-12 pt-8 border-t border-slate-700 text-center text-sm">
+    <p>&copy; {currentYear} Taxi Valenciennes. Tous droits réservés. VSL Conventionné CPAM.</p>
+  </div>
+</footer>

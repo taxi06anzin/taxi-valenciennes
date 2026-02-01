@@ -4,3 +4,4 @@
   
 [build.environment]
   NODE_VERSION = "18"
+  BASE_URL = "https://taxi-valenciennes.fr"

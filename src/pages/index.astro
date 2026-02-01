@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+import cities from '../data/cities.json';
+import WhatsAppForm from '../components/WhatsAppForm';
+import { ShieldCheck, Banknote, Map, Phone } from 'lucide-react';
+
+const mainCities = cities.slice(0, 6); // Just show a few for now
+---
+
+<Layout title="Taxi Valenciennes 24h/24 | VSL CPAM | 06 98 43 27 10">
+  <!-- Hero Section -->
+  <section class="relative bg-primary text-white py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-slate-900 opacity-90"></div>
+    <div class="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6 text-center lg:text-left">
+        <h1 class="text-4xl lg:text-6xl font-extrabold font-heading leading-tight">
+          Votre Taxi VSL <span class="text-accent">Agréé CPAM</span> à Valenciennes
+        </h1>
+        <p class="text-xl text-slate-300 max-w-lg mx-auto lg:mx-0">
+          Disponible 24h/24 et 7j/7 pour tous vos transports médicaux et privés. Ponctualité et confort garantis depuis 15 ans.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a href="tel:0698432710" class="flex items-center gap-2 bg-accent hover:bg-amber-600 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 text-center justify-center">
+            <Phone className="w-5 h-5" /> 06 98 43 27 10
+          </a>
+        </div>
+        <div class="pt-6 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm font-medium text-slate-400">
+          <span class="flex items-center gap-2"><ShieldCheck className="w-5 h-5 text-medical" /> Agréé CPAM</span>
+          <span class="flex items-center gap-2"><Banknote className="w-5 h-5 text-medical" /> Tiers Payant</span>
+          <span class="flex items-center gap-2"><Map className="w-5 h-5 text-medical" /> Toutes Distances</span>
+        </div>
+      </div>
+      
+      <!-- Quick Booking Form -->
+      <div class="lg:w-full max-w-md mx-auto">
+        <WhatsAppForm client:visible />
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-20 bg-slate-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-bold font-heading text-center mb-16 text-primary">Nos Services de Transport</h2>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-medical hover:-translate-y-2 transition-transform duration-300">
+          <div class="w-14 h-14 bg-medical/10 rounded-xl flex items-center justify-center text-medical mb-6">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 font-heading">Transport Médical VSL</h3>
+          <p class="text-slate-600 mb-4">Taxi conventionné CPAM pour vos rendez-vous médicaux, hospitalisations, dialyses. Tiers payant accepté.</p>
+          <a href="/services/medical" class="text-medical font-bold hover:underline">En savoir plus &rarr;</a>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-accent hover:-translate-y-2 transition-transform duration-300">
+          <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center text-accent mb-6">
+             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 font-heading">Navette Aéroport</h3>
+          <p class="text-slate-600 mb-4">Liaisons vers les aéroports de Lille-Lesquin, Charleroi, Bruxelles Zaventem, Roissy CDG et Orly.</p>
+          <a href="/services/aeroport" class="text-accent font-bold hover:underline">Voir les forfaits &rarr;</a>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-primary hover:-translate-y-2 transition-transform duration-300">
+          <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 font-heading">Gares & Business</h3>
+          <p class="text-slate-600 mb-4">Transferts gares (Valenciennes, Lille Europe/Flandres) et déplacements professionnels toutes distances.</p>
+          <a href="/services/business" class="text-primary font-bold hover:underline">Réserver un chauffeur &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Zones Section -->
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold font-heading text-center mb-12 text-primary">Nous intervenons partout dans le Valenciennois</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        {mainCities.map(city => (
+          <a href={`/${city.slug}`} class="block p-4 bg-white border border-slate-200 rounded-lg hover:border-accent hover:shadow-md transition-all text-center">
+            <span class="font-medium text-slate-700">{city.name}</span>
+          </a>
+        ))}
+      </div>
+      <div class="text-center mt-12">
+        <a href="/zones" class="inline-block border-2 border-primary text-primary font-bold py-3 px-8 rounded-full hover:bg-primary hover:text-white transition-colors">
+          Voir toutes les communes desservies
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
