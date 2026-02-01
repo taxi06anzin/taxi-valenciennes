@@ -1,0 +1,57 @@
+---
+interface Props {
+  type?: 'LocalBusiness' | 'TaxiService';
+  name?: string;
+  description?: string;
+  city?: string;
+  url?: string;
+}
+
+const { 
+  type = 'TaxiService',
+  name = 'Taxi Valenciennes', 
+  description = 'Taxi conventionné CPAM VSL à Valenciennes et agglomération. Transport médical assis, gare et aéroport 24h/24.',
+  city = 'Valenciennes',
+  url = Astro.site
+} = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": type,
+  "name": name,
+  "image": `${url}assets/hero-bg.jpg`,
+  "@id": `${url}#localbusiness`,
+  "url": url,
+  "telephone": "+33663039516",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Valenciennes",
+    "postalCode": "59300",
+    "addressRegion": "Hauts-de-France",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.3584,
+    "longitude": 3.5233
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    }
+  ],
+  "areaServed": {
+    "@type": "City",
+    "name": city
+  },
+  "sameAs": [
+    "https://taxi-valenciennes.fr"
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

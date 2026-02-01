@@ -16,6 +16,7 @@ const { city } = Astro.props;
 <Layout 
   title={city.metaTitle || `Taxi à ${city.name} | Conventionné CPAM & VSL`} 
   description={city.metaDesc || `Réservez votre taxi à ${city.name}. Transport médical VSL conventionné CPAM. Lun-Ven 8h-18h. Nuit/Week-end sur réservation 24h avant.`}
+  city={city.name}
 >
   <!-- City Specific Hero -->
   <section class="relative bg-primary text-white py-20">
