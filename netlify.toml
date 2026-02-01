@@ -1,7 +1,7 @@
 [build]
-  command = "cd project && npm run build"
-  publish = "project/public"
+  command = "npm run build && node generate_sitemap.cjs"
+  publish = "dist"
   
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
   BASE_URL = "https://taxi-valenciennes.fr"
