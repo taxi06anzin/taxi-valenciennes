@@ -185,73 +185,82 @@ function generateCommuneContent(commune, variant) {
     .slice(0, 4);
 
   return `
-  <header>
-    <a href="#" class="vtaxi-logo">TAXI VALENCIENNES</a>
-    <a href="tel:${CONFIG.PHONE_CALL}" class="vtaxi-phone-header">${CONFIG.PHONE_CALL_DISPLAY}</a>
-  </header>
-
-  <section class="vtaxi-hero">
-    <div class="hero-content">
-      <h1>Transport VSL Premium<br>depuis ${commune.nom}</h1>
-      <p>Service de chauffeurs conventionnés CPAM pour vos trajets médicaux vers Lille & Valenciennes.</p>
-    </div>
-  </section>
-
-  <div class="booking-widget">
-    <div class="widget-input">📍 Départ : ${commune.nom} (${commune.cp})</div>
-    <div class="widget-input">🏥 Destination : CHU / Clinique</div>
-    <a href="tel:${CONFIG.PHONE_CALL}" class="btn-search">RÉSERVER MAINTENANT</a>
-  </div>
-
-  <section class="section-services">
-    <h2 class="section-title">Nos Services Exclusifs</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=1936&auto=format&fit=crop" class="service-img" alt="VSL CPAM">
-        <h3>Conventionné CPAM</h3>
-        <p>Transport médical assis pris en charge à 100% pour les affections longue durée (ALD). Tiers payant intégral.</p>
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Taxi Conventionné VSL ${commune.nom}</h1>
+        <p>Transport médical assis agréé CPAM, disponible pour ${commune.nom} (${commune.cp}) et toute la métropole valenciennoise.</p>
+        <div class="hero-badges">
+          <div class="badge">Agréé CPAM</div>
+          <div class="badge">Tiers Payant</div>
+          <div class="badge">Ponctuel 24/7*</div>
+          <div class="badge">Zéro Avance</div>
+        </div>
       </div>
-      <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=2070&auto=format&fit=crop" class="service-img" alt="Confort">
-        <h3>Confort Premium</h3>
-        <p>Voyagez dans des véhicules berlines récentes, climatisées et entretenues avec le plus grand soin.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop" class="service-img" alt="Ponctualité">
-        <h3>Ponctualité Garantie</h3>
-        <p>Nos chauffeurs connaissent parfaitement ${commune.nom} et s'engagent à respecter vos horaires de rendez-vous.</p>
+      <div class="booking-panel">
+        <h3>Réservation rapide</h3>
+        <div class="booking-row">
+          <div class="booking-item">📍 Départ : ${commune.nom} (${commune.cp})</div>
+          <div class="booking-item">🏥 Destination : CHU Lille / Clinique</div>
+          <div class="booking-item">⏱️ Estimation : ~${tempsEstime} min</div>
+        </div>
+        <div class="booking-cta">
+          <a href="tel:${CONFIG.PHONE_CALL}" class="btn-primary">📞 Appeler ${CONFIG.PHONE_CALL_DISPLAY}</a>
+          <a href="https://wa.me/33${CONFIG.PHONE_WHATSAPP_CLEAN}?text=${whatsappMsg}" class="btn-secondary">💬 WhatsApp</a>
+        </div>
+        <div class="booking-item">⚠️ Nuit/Week-end : réservation 24h à l’avance.</div>
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>À PROPOS</h4>
-        <ul>
-          <li><a href="#">Notre Flotte</a></li>
-          <li><a href="#">Nos Chauffeurs</a></li>
-          <li><a href="#">Mentions Légales</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>SERVICES</h4>
-        <ul>
-          <li><a href="#">Transport VSL</a></li>
-          <li><a href="#">Navette Aéroport</a></li>
-          <li><a href="#">Longue Distance</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>CONTACT</h4>
-        <ul>
-          <li><a href="tel:${CONFIG.PHONE_CALL}">${CONFIG.PHONE_CALL_DISPLAY}</a></li>
-          <li><a href="https://wa.me/33${CONFIG.PHONE_WHATSAPP_CLEAN}">WhatsApp</a></li>
-          <li><a href="mailto:contact@taxi-valenciennes.fr">Email</a></li>
-        </ul>
+  <section class="trust-strip">
+    <div class="container trust-list">
+      <div>✅ Conventionné CPAM</div>
+      <div>🚗 Véhicules premium</div>
+      <div>⏱️ Ponctualité garantie</div>
+      <div>⭐ Service privé</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">${variant.h2(commune)}</h2>
+      <p class="section-subtitle">${variant.intro(commune)}</p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>CHU Lille (Huriez / Salengro)</h3>
+          <div class="price-tag">${commune.tarif}€</div>
+          <p>Aller-retour estimatif • ~${tempsEstime} min</p>
+          <div class="chip">✅ 100% remboursé ALD</div>
+        </div>
+        <div class="card">
+          <h3>Centre Oscar Lambret</h3>
+          <div class="price-tag">${commune.tarif}€</div>
+          <p>Aller-retour estimatif • ~${tempsEstime} min</p>
+          <div class="chip">✅ 100% remboursé ALD</div>
+        </div>
+        <div class="card">
+          <h3>Transport privé</h3>
+          <p>Déplacements professionnels et particuliers, longue distance ou gare/aéroport.</p>
+          <div class="chip">Service premium</div>
+        </div>
       </div>
     </div>
-  </footer>
+  </section>
+
+  <section class="cta-bar">
+    <div class="container cta-inner">
+      <div>
+        <strong>Besoin d’un taxi maintenant ?</strong><br>
+        Service 7j/7 – réservation obligatoire la nuit et le week-end.
+      </div>
+      <div class="cta-actions">
+        <a href="tel:${CONFIG.PHONE_CALL}" class="btn-call">📞 ${CONFIG.PHONE_CALL_DISPLAY}</a>
+        <a href="https://wa.me/33${CONFIG.PHONE_WHATSAPP_CLEAN}" class="btn-whatsapp">💬 WhatsApp</a>
+      </div>
+    </div>
+  </section>
   `;
 }
 
@@ -263,7 +272,8 @@ function generateCommunePage(commune, index, templates) {
   // Remplacement des variables dans les templates
   const header = templates.header
     .replace(/{{PHONE_CALL}}/g, CONFIG.PHONE_CALL)
-    .replace(/{{PHONE_DISPLAY}}/g, CONFIG.PHONE_CALL_DISPLAY);
+    .replace(/{{PHONE_DISPLAY}}/g, CONFIG.PHONE_CALL_DISPLAY)
+    .replace(/{{PHONE_WHATSAPP_CLEAN}}/g, CONFIG.PHONE_WHATSAPP_CLEAN);
     
   const footer = templates.footer
     .replace(/{{COMMUNE_NOM}}/g, commune.nom)

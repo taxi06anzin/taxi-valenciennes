@@ -1,11 +1,17 @@
 :root {
-  --black: #000000;
-  --white: #ffffff;
-  --gold: #C7A978; /* Luxe */
-  --gold-hover: #b59565;
-  --gray-light: #f9f9f9;
-  --gray-text: #666666;
-  --border: #e0e0e0;
+  --ink: #0b0d12;
+  --ink-strong: #0a0f1f;
+  --paper: #ffffff;
+  --muted: #667085;
+  --line: #e6e8ec;
+  --accent: #1a73e8;
+  --accent-strong: #1558b0;
+  --accent-alt: #0b101f;
+  --success: #25d366;
+  --gold: #e1b87a;
+  --shadow-soft: 0 8px 30px rgba(15, 23, 42, 0.12);
+  --shadow-hard: 0 20px 60px rgba(15, 23, 42, 0.2);
+  --radius: 14px;
 }
 
 * {
@@ -15,223 +21,331 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif; /* Moderne et clean */
-  color: var(--black);
-  background: var(--white);
-  line-height: 1.6;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* --- HEADER TRANSPARENT --- */
-header {
-  position: absolute;
+.container {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+/* --- HEADER --- */
+header.site-header {
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px 40px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+  padding: 16px 0;
 }
 
-.vtaxi-logo {
-  color: var(--white);
-  font-size: 24px;
+.brand {
   font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: 14px;
+  color: var(--ink);
   text-decoration: none;
 }
 
-.vtaxi-phone-header {
-  color: var(--white);
-  font-weight: 600;
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.3);
-  padding: 10px 20px;
-  border-radius: 4px;
-  transition: all 0.3s;
-}
-
-.vtaxi-phone-header:hover {
-  background: var(--white);
-  color: var(--black);
-}
-
-/* --- HERO SECTION "BLACKLANE STYLE" --- */
-.vtaxi-hero {
-  height: 80vh; /* Grand hero */
-  background: url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+.header-cta {
   display: flex;
+  gap: 12px;
   align-items: center;
-  justify-content: center;
-  position: relative;
 }
 
-.vtaxi-hero::before {
-  content: '';
+.btn-call {
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn-call:hover {
+  background: var(--accent-alt);
+}
+
+.btn-whatsapp {
+  background: var(--success);
+  color: var(--paper);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* --- HERO --- */
+.hero {
+  background: radial-gradient(circle at 20% 20%, rgba(26,115,232,0.15), transparent 40%),
+              radial-gradient(circle at 80% 0%, rgba(225,184,122,0.2), transparent 45%),
+              linear-gradient(180deg, #0b0d12 0%, #101828 100%);
+  color: var(--paper);
+  padding: 70px 0 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.4); /* Voile sombre */
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2060&auto=format&fit=crop') center/cover;
+  opacity: 0.2;
+  mix-blend-mode: screen;
 }
 
 .hero-content {
   position: relative;
-  z-index: 10;
-  text-align: center;
-  color: var(--white);
-  max-width: 800px;
-}
-
-.hero-content h1 {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  letter-spacing: -1px;
-}
-
-.hero-content p {
-  font-size: 18px;
-  font-weight: 300;
-  margin-bottom: 40px;
-  opacity: 0.9;
-}
-
-/* --- WIDGET RÉSERVATION FLOTTANT --- */
-.booking-widget {
-  background: var(--white);
-  padding: 30px;
-  border-radius: 4px;
-  display: flex;
-  gap: 15px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
   align-items: center;
-  max-width: 900px;
-  margin: 0 auto;
-  transform: translateY(50%); /* Chevauchement */
 }
 
-.widget-input {
-  flex: 1;
-  padding: 15px;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  background: #f5f5f5;
-}
-
-.btn-search {
-  background: var(--gold);
-  color: var(--white);
-  padding: 15px 40px;
-  border: none;
-  border-radius: 4px;
+.hero-text h1 {
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.1;
+  margin-bottom: 16px;
   font-weight: 700;
-  text-transform: uppercase;
-  cursor: pointer;
+}
+
+.hero-text p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.badge {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* --- BOOKING PANEL --- */
+.booking-panel {
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hard);
+  padding: 24px;
+  color: var(--ink);
+  display: grid;
+  gap: 14px;
+}
+
+.booking-panel h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.booking-row {
+  display: grid;
+  gap: 10px;
+}
+
+.booking-item {
+  background: #f3f5f9;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.booking-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  flex: 1;
+  background: var(--accent);
+  color: var(--paper);
   text-decoration: none;
-  transition: background 0.3s;
-}
-
-.btn-search:hover {
-  background: var(--gold-hover);
-}
-
-/* --- SECTIONS SERVICES --- */
-.section-services {
-  padding: 100px 20px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-weight: 700;
   text-align: center;
-  background: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--accent-strong);
+}
+
+.btn-secondary {
+  flex: 1;
+  background: #f0f4ff;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* --- TRUST STRIP --- */
+.trust-strip {
+  background: var(--paper);
+  margin-top: -40px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.trust-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* --- SECTIONS --- */
+.section {
+  padding: 70px 0;
 }
 
 .section-title {
-  font-size: 32px;
-  font-weight: 300;
-  margin-bottom: 60px;
-  color: var(--black);
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
-.services-grid {
+.section-subtitle {
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 
-.service-card {
-  text-align: left;
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 22px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
 }
 
-.service-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  margin-bottom: 20px;
-  border-radius: 4px;
-}
-
-.service-card h3 {
+.card h3 {
   font-size: 18px;
   margin-bottom: 10px;
 }
 
-.service-card p {
-  color: var(--gray-text);
+.card p {
+  color: var(--muted);
   font-size: 14px;
-  line-height: 1.6;
 }
 
-/* --- FOOTER MASSIF --- */
-footer {
-  background: var(--black);
-  color: var(--white);
-  padding: 80px 40px;
-  font-size: 14px;
+.price-tag {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 12px 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ecfdf3;
+  color: #027a48;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* --- CTA BAR --- */
+.cta-bar {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 30px 0;
+}
+
+.cta-bar .cta-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cta-bar .cta-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* --- FOOTER --- */
+footer.site-footer {
+  background: #0b0d12;
+  color: var(--paper);
+  padding: 60px 0;
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 30px;
 }
 
-.footer-col h4 {
-  color: var(--gray-text);
-  margin-bottom: 20px;
+.footer-grid h4 {
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.08em;
   font-size: 12px;
+  color: var(--gold);
+  margin-bottom: 14px;
 }
 
-.footer-col ul {
-  list-style: none;
-}
-
-.footer-col li {
-  margin-bottom: 10px;
-}
-
-.footer-col a {
-  color: var(--white);
+.footer-grid a {
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  opacity: 0.8;
-  transition: opacity 0.3s;
+  display: block;
+  margin-bottom: 8px;
 }
 
-.footer-col a:hover {
-  opacity: 1;
-}
-
-/* --- MOBILE RESPONSIVE --- */
+/* --- MOBILE --- */
 @media (max-width: 768px) {
-  .vtaxi-hero h1 { font-size: 32px; }
-  .booking-widget { 
-    flex-direction: column; 
-    transform: translateY(0);
-    margin: 20px;
+  .hero {
+    padding: 50px 0 80px;
   }
-  .widget-input, .btn-search { width: 100%; }
-}
+
+  .header-cta {
+    gap: 8px;
+  }
+
+  .btn-call, .btn-whatsapp {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .cta-bar .cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+} 
