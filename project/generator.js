@@ -118,24 +118,11 @@ function loadTemplates() {
 function loadAssets() {
   const assetsPath = path.join(__dirname, 'assets');
   
-  // Lecture du CSS et minification basique
+  // Lecture du CSS (SANS minification destructive)
   let css = fs.readFileSync(path.join(assetsPath, 'style.css'), 'utf8');
-  css = css
-    .replace(/\/\*[\s\S]*?\*\//g, '') // Suppression des commentaires
-    .replace(/\s+/g, ' ') // Réduction des espaces multiples
-    .replace(/;\s*}/g, '}') // Suppression des ; avant }
-    .replace(/\s*{\s*/g, '{') // Nettoyage autour des {
-    .replace(/;\s*/g, ';') // Nettoyage des ;
-    .trim();
   
-  // Lecture du JS et minification basique
+  // Lecture du JS (SANS minification destructive)
   let js = fs.readFileSync(path.join(assetsPath, 'script.js'), 'utf8');
-  js = js
-    .replace(/\/\*[\s\S]*?\*\//g, '') // Suppression des commentaires
-    .replace(/\/\/.*$/gm, '') // Suppression des commentaires //
-    .replace(/\s+/g, ' ') // Réduction des espaces
-    .replace(/;\s*}/g, '}') // Nettoyage
-    .trim();
   
   return { css, js };
 }
@@ -324,13 +311,7 @@ function generateCommunePage(commune, index, templates, assets) {
     .replace('{{STICKY_CTA}}', stickyCta)
     .replace('{{JAVASCRIPT}}', `<script>${assets.js}</script>`);
   
-  // Minification HTML basique
-  html = html
-    .replace(/\s+/g, ' ') // Réduction des espaces multiples
-    .replace(/> </g, '><') // Suppression des espaces entre balises
-    .replace(/^\s+|\s+$/gm, '') // Suppression des espaces en début/fin de ligne
-    .trim();
-  
+  // HTML non minifié pour le debug
   return html;
 }
 
