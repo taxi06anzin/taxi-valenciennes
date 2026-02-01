@@ -187,99 +187,72 @@ function generateCommuneContent(commune, variant) {
   return `
   <section class="vtaxi-hero">
     <div class="vtaxi-container">
-      <h1>Taxi Conventionné VSL ${commune.nom} ${commune.cp} | Transport Médical CPAM</h1>
-      <p class="vtaxi-hero-subtitle">Votre trajet médical depuis ${commune.nom} vers les hôpitaux (CHU Lille, Valenciennes)</p>
+      <h1>Taxi Conventionné VSL ${commune.nom} (${commune.cp})</h1>
+      <p class="vtaxi-hero-subtitle">Transport Médical Agréé CPAM vers CHU Lille & Valenciennes</p>
       
-      <!-- BLOC DISPONIBILITÉ -->
-      <div style="background: rgba(255,255,255,0.95); color: #333; padding: 15px; border-radius: 8px; margin: 20px auto; max-width: 800px; border-left: 5px solid #ff6600; text-align: left;">
-        <p style="margin: 0; font-size: 16px; line-height: 1.5;">
-          <strong>📅 Horaires de service :</strong> Service disponible du lundi au vendredi de 7h à 18h.<br>
-          ⚠️ <em>Pour vos trajets de nuit et de week-end, la réservation est <strong>obligatoire au minimum 24h à l'avance</strong>.</em>
-        </p>
+      <div class="info-box">
+        <p>📅 <strong>Disponibilité :</strong> Lun-Ven 7h-18h. <br>⚠️ Nuit/Week-end : Réservation 24h avant obligatoire.</p>
       </div>
 
-      <div style="margin-top: 30px;">
-        <a href="tel:${CONFIG.PHONE_CALL}" class="vtaxi-cta">📞 Appeler le ${CONFIG.PHONE_CALL_DISPLAY}</a>
-        <a href="https://wa.me/33${CONFIG.PHONE_WHATSAPP_CLEAN}?text=${whatsappMsg}" class="vtaxi-cta vtaxi-cta-whatsapp">💬 WhatsApp</a>
+      <div class="hero-actions">
+        <a href="tel:${CONFIG.PHONE_CALL}" class="btn-primary">📞 APPELER MAINTENANT</a>
+        <a href="https://wa.me/33${CONFIG.PHONE_WHATSAPP_CLEAN}?text=${whatsappMsg}" class="btn-whatsapp">💬 RÉSERVER PAR WHATSAPP</a>
       </div>
     </div>
   </section>
 
   <section class="vtaxi-section">
     <div class="vtaxi-container">
-      <h2 class="vtaxi-section-title">${variant.h2(commune)}</h2>
+      <h2 class="section-title">${variant.h2(commune)}</h2>
       
-      <div class="vtaxi-empathy-box">
-        <h3>ℹ️ Info Transport ${commune.nom}</h3>
-        <p>${variant.intro(commune)}</p>
-        <p style="margin-top: 15px; font-weight: 600; color: var(--vtaxi-blue-dark);">✨ Notre engagement : ${variant.benefit}</p>
-      </div>
-
-      <div class="vtaxi-trust-badges">
-        <div class="vtaxi-trust-badge">
-          <span class="vtaxi-trust-badge-icon">✅</span>
-          <span class="vtaxi-trust-badge-text">Agréé CPAM</span>
+      <div class="badges-grid">
+        <div class="badge-item">
+          <span class="badge-icon">✅</span>
+          <div class="badge-text">Agréé CPAM</div>
         </div>
-        <div class="vtaxi-trust-badge">
-          <span class="vtaxi-trust-badge-icon">🏥</span>
-          <span class="vtaxi-trust-badge-text">Tiers Payant</span>
+        <div class="badge-item">
+          <span class="badge-icon">🏥</span>
+          <div class="badge-text">Tiers Payant</div>
         </div>
-        <div class="vtaxi-trust-badge">
-          <span class="vtaxi-trust-badge-icon">📅</span>
-          <span class="vtaxi-trust-badge-text">Sur Réservation</span>
+        <div class="badge-item">
+          <span class="badge-icon">✨</span>
+          <div class="badge-text">Confort VSL</div>
         </div>
-        <div class="vtaxi-trust-badge">
-          <span class="vtaxi-trust-badge-icon">🚕</span>
-          <span class="vtaxi-trust-badge-text">Confort VSL</span>
+        <div class="badge-item">
+          <span class="badge-icon">📅</span>
+          <div class="badge-text">Ponctuel</div>
         </div>
       </div>
 
-      <h2 class="vtaxi-section-title">Tarifs & Temps de Trajet depuis ${commune.nom}</h2>
+      <p style="color: #5F6368; line-height: 1.6; margin-bottom: 24px;">${variant.intro(commune)}</p>
 
-      <div class="vtaxi-tarif-grid">
-        <div class="vtaxi-tarif-card">
+      <h2 class="section-title">Tarifs Estimés depuis ${commune.nom}</h2>
+
+      <div class="tarif-grid">
+        <div class="tarif-card">
           <h3>CHU Lille (Huriez/Cœur)</h3>
-          <p>📍 Départ : ${commune.nom} (${commune.cp})</p>
-          <p>⏱️ Temps estimé : <strong>~${tempsEstime} min</strong></p>
-          <p style="margin-top: 15px; font-size: 14px; color: #666;">Distance : ${commune.distance} km</p>
-          <span class="vtaxi-prix">${commune.tarif}€ <span style="font-size: 16px; font-weight: normal; color: #666;">(estimation)</span></span>
-          
-          <div style="background: #e8f5e9; padding: 10px; border-radius: 5px; margin-top: 15px;">
-            <p style="color: #2e7d32; font-weight: bold; margin: 0;">✅ ALD 100% : 0€ à avancer</p>
-            <p style="font-size: 13px; margin: 5px 0 0;">Prise en charge intégrale CPAM</p>
-          </div>
+          <span class="tarif-prix">${commune.tarif}€*</span>
+          <p style="font-size: 14px; color: #5F6368; margin-bottom: 12px;">Aller-retour • ~${tempsEstime} min</p>
+          <span class="ald-tag">✅ 100% Remboursé ALD</span>
         </div>
 
-        <div class="vtaxi-tarif-card">
+        <div class="tarif-card">
           <h3>Centre Oscar Lambret</h3>
-          <p>📍 Départ : ${commune.nom} (${commune.cp})</p>
-          <p>⏱️ Temps estimé : <strong>~${tempsEstime} min</strong></p>
-          <p style="margin-top: 15px; font-size: 14px; color: #666;">Centre de lutte contre le cancer</p>
-          <span class="vtaxi-prix">${commune.tarif}€ <span style="font-size: 16px; font-weight: normal; color: #666;">(estimation)</span></span>
-          
-          <div style="background: #e8f5e9; padding: 10px; border-radius: 5px; margin-top: 15px;">
-            <p style="color: #2e7d32; font-weight: bold; margin: 0;">✅ ALD 100% : 0€ à avancer</p>
-            <p style="font-size: 13px; margin: 5px 0 0;">Conventionné Sécurité Sociale</p>
-          </div>
+          <span class="tarif-prix">${commune.tarif}€*</span>
+          <p style="font-size: 14px; color: #5F6368; margin-bottom: 12px;">Aller-retour • ~${tempsEstime} min</p>
+          <span class="ald-tag">✅ 100% Remboursé ALD</span>
         </div>
       </div>
+      
+      <p style="font-size: 12px; color: #9AA0A6; margin-top: 12px;">*Tarifs estimatifs, le compteur fait foi. Prise en charge à 100% pour les patients en ALD avec bon de transport.</p>
     </div>
   </section>
 
-  <section class="vtaxi-section" style="background: var(--vtaxi-gray-light);">
+  <section class="vtaxi-section" style="background: #F8F9FA;">
     <div class="vtaxi-container">
-      <h2 class="vtaxi-section-title">Communes Voisines de ${commune.nom}</h2>
-      <div class="vtaxi-grid-communes">
-        ${voisines.map(v => `<a href="taxi-conventionne-${v.slug}.html" class="vtaxi-commune-card">
-          <h3>VSL ${v.nom}</h3>
-          <p>${v.cp} • Agréé CPAM</p>
-        </a>`).join('\n        ')}
-      </div>
-      
-      <div style="text-align: center; margin-top: 40px;">
-        <a href="taxi-conventionne-valenciennes-transport-cpam-100.html" class="vtaxi-cta vtaxi-cta-secondary">
-          Voir toutes les zones desservies
-        </a>
+      <h2 class="section-title">Autres Communes</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        ${voisines.map(v => `<a href="taxi-conventionne-${v.slug}.html" style="background: white; padding: 8px 12px; border-radius: 4px; text-decoration: none; color: #202124; font-size: 14px; border: 1px solid #E0E0E0;">${v.nom}</a>`).join('\n        ')}
       </div>
     </div>
   </section>
